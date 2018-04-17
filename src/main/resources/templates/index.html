@@ -9,6 +9,9 @@
 <div th:each="eachBook:${library}">
     <p th:text="${eachBook.title}"></p>
     <p th:text="${eachBook.borrowed}?'Borrowed':'Available'"></p>
+
+    <!--Solution to update functionality-->
+    <a th:href="@{/update/{id}(id=${eachBook.id})}">Update Book Details</a>
     <a th:text="${eachBook.borrowed}?'Return':'Borrow'" th:href="@{/changestatus/{id}(id=${eachBook.id})}"></a>
 
 </div>

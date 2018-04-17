@@ -47,5 +47,15 @@ public class MainController {
         return "redirect:/";
     }
 
+    //Solution to 'update' functionality
+    @RequestMapping("/update/{id}")
+    public String updateBookDetails(@PathVariable("id") long id, Model model)
+    {
+        //Get the item ID - look in the list to find out the item that returns a book! 
+        Book thisBook = bookRepo.findById(id).get();
+        model.addAttribute("aBook",thisBook);
+        return "addbook";
+    }
+
 
 }
